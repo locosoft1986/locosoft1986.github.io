@@ -17,9 +17,11 @@
 <p>
     <a href="http://apis.map.qq.com/uri/v1/marker?marker=coord:31.139527,121.661343;title:%E6%B8%94%E8%99%BE%E8%B7%B3%E4%B8%BB%E9%A2%98%E9%A4%90%E5%90%A7">Tencent map</a>
 </p>
+<p id="lang"></p>
 <h4>Baidu Map</h4>
 <div id="allmap"></div>
 <script type="text/javascript">
+  document.getElementById("lang").innerHTML = window.navigator.userAgent.toLowerCase();
   var tileLayer = new BMap.TileLayer();
   tileLayer.getTilesUrl = function(tileCoord, zoom) {
     var x = tileCoord.x;
