@@ -14,7 +14,7 @@
 <script>
     var player = new Aliplayer({
             "id": "player-con",
-            "source": "http://ivi.bupt.edu.cn/hls/cctv6.m3u8",
+            "source": "https://ivi.bupt.edu.cn/hls/cctv6.m3u8",
             "width": "100%",
             "height": "720px",
             "autoplay": true,
@@ -29,100 +29,5 @@
             console.log("The player is created");
         }
     );
-</script>
-</body>
-
-<p>
-    <a href="http://apis.map.qq.com/uri/v1/marker?marker=coord:31.139527,121.661343;title:%E6%B8%94%E8%99%BE%E8%B7%B3%E4%B8%BB%E9%A2%98%E9%A4%90%E5%90%A7">Tencent map</a>
-</p>
-<p id="lang"></p>
-<h4>Baidu Map</h4>
-<div id="allmap"></div>
-<script type="text/javascript">
-  document.getElementById("lang").innerHTML = window.navigator.userAgent.toLowerCase();
-  var tileLayer = new BMap.TileLayer();
-  tileLayer.getTilesUrl = function(tileCoord, zoom) {
-    var x = tileCoord.x;
-    var y = tileCoord.y;
-    var newX = x + (1 << zoom - 1);
-    var newY = (1 << zoom) - (y + (1 << zoom - 1)) - 1;
-    var url = 'https://cdn6.parksmedia.wdprapps.disney.com/media/maps/prod/shdr-baidu-en/24/'+ zoom + '/' + newX + '/' + newY +'.jpg';
-
-    console.log(11111, x, y, zoom);
-    return url;
-  };
-  // 百度地图API功能
-  var MyMap = new BMap.MapType('MyMap', tileLayer, {minZoom: 14, maxZoom: 21});
-  var map = new BMap.Map('allmap', {mapType: MyMap});
-
-  var point = new BMap.Point(121.667363,31.14922);
-  map.addControl(new BMap.NavigationControl());
-  map.centerAndZoom(new BMap.Point(121.667363,31.14922), 20);  // 初始化地图,设置中心点坐标和地图级别
-  map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-
-  var myIcon = new BMap.Icon("https://secure.cdn1.wdpromedia.cn/media/pep/live/media/modules/maps/img/content/pins/c8aea0-default.png",
-      new BMap.Size(25, 39), {
-      // 指定定位位置。
-      // 当标注显示在地图上时，其所指向的地理位置距离图标左上
-      // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
-      // 图标中央下端的尖角位置。
-      anchor: new BMap.Size(12, 39)
-  });
-
-  var marker = new BMap.Marker(point, {icon: myIcon});        // 创建标注
-  map.addOverlay(marker);
-
-  // configureTilers  e.prototype.getCustomTileUrl
-
-  // r.x = r.x + (1 << zoom - 1);
-  // r.y = (1 << zoom) - (r.y + (1 << zoom - 1)) - 1;
-  // this.mapData: Array(1)
-  // 0:
-  // availableTiles: Array(13)
-  // 0:
-  // xRange: {max: 359, min: 359}
-  // yRange: {max: 228, min: 228}
-  // zoom: 9
-  // __proto__: Object
-  // 1: {zoom: 10, xRange: {…}, yRange: {…}}
-  // 2: {zoom: 11, xRange: {…}, yRange: {…}}
-  // 3: {zoom: 12, xRange: {…}, yRange: {…}}
-  // 4: {zoom: 13, xRange: {…}, yRange: {…}}
-  // 5: {zoom: 14, xRange: {…}, yRange: {…}}
-  // 6: {zoom: 15, xRange: {…}, yRange: {…}}
-  // 7: {zoom: 16, xRange: {…}, yRange: {…}}
-  // 8: {zoom: 17, xRange: {…}, yRange: {…}}
-  // 9: {zoom: 18, xRange: {…}, yRange: {…}}
-  // 10:
-  // xRange: {max: 368031, min: 367887}
-  // yRange: {max: 233856, min: 233712}
-  // zoom: 19
-  // __proto__: Object
-  // 11: {zoom: 20, xRange: {…}, yRange: {…}}
-  // 12: {zoom: 21, xRange: {…}, yRange: {…}}
-  // length: 13
-  // __proto__: Array(0)
-  // facility: {id: "shdr;entityType=destination;destination=shdr", name: "上海迪士尼度假区", type: "destination", media: {…}, coordinates: {…}, …}
-  // id: "shdr"
-  // innerMaps: (5) [{…}, {…}, {…}, {…}, {…}]
-  // locationType: "property"
-  // mapBounds:
-  //     northEast:
-  //         latitude: "31.1614467776"
-  // longitude: "121.68495520131"
-  // __proto__: Object
-  // southWest:
-  //     latitude: "31.1321873111"
-  // longitude: "121.65487062206"
-  // __proto__: Object
-  // __proto__: Object
-  // name: "上海迪士尼度假区"
-  // poiPoint: {longitude: "121.66900350656", latitude: "31.147169600124"}
-  // type: "destination"
-  // zoom: {default: 16, max: 17, min: 12}
-  // __proto__: Object
-
-  // <div><img src="https://secure.cdn1.wdpromedia.cn/media/pep/live/media/modules/maps/img/content/pins/c8aea0-default.png" width="25" height="39" class="overlayImage"><div class="label"></div><img src="https://secure.cdn1.wdpromedia.cn/media/pep/live/media/modules/maps/img/content/pins/0c2622-shadow.png" width="26" height="11" class="overlayShadow" style="margin-top: 27px; margin-left: 12px;"></div>
->>>>>>> 55e540596edaa38d9708f0a9a89a8a7f422b6cbb
 </script>
 </body>
