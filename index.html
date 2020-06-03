@@ -9,6 +9,8 @@
     <style type="text/css">
         body, html, div, img, video {width: 100%;margin:0;font-family:"微软雅黑";}
     </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
 </head>
 <body>
 
@@ -17,12 +19,18 @@
 </p>
 <h4>GIF TEST</h4>
 <div>
-    <img src="./disney-wb-logo.gif" />
+    <img class="lazy" data-src="./disney-wb-logo.gif" />
 </div>
 
 <h4>MUTED Video test</h4>
 <div>
     <video src="./disney.mp4" loop muted autoplay playsinline></video>
 </div>
+
+<script>
+  $(function() {
+    $('.lazy').Lazy();
+  });
+</script>
 </body>
 </html>
